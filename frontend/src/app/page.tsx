@@ -10,6 +10,6 @@ export async function generateMetadata() {
   };
 }
  
-export default function Page() {
-  return <span>My existing page here</span>;
+export default function Home() {
+  return <p>Hello World</p>;
 }
