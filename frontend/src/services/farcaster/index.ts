@@ -43,12 +43,14 @@ export const imgUrl = async (request) => {
       const hashLong: string = resJson.result.cast.hash; //pulls out the full hash
       const saveImage = new URL(`https://client.warpcast.com/v2/cast-image?castHash=${hashLong}`); 
       const saveAuthor = username
+      const saveText = resJson.result.cast.text
 
       //Return response object
       return {
         status: 200,
         body: saveImage.toString(), // Convert URL to string before returning
         saveAuthor.toString(), //Save Authors Name
+        saveText.toString(), //Save Cast Text
       };
     } catch (error) {
       console.error(error);
