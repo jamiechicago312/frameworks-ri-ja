@@ -2,4 +2,24 @@ node_modules
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
-```
+
+
+.env
+contract/.env
+frontend/.env
+
+# Hardhat files
+contract/cache
+contract/artifacts
+
+# TypeChain files
+/typechain
+/typechain-types
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+
+contract/ignition
+!contract/ignition/deployments
