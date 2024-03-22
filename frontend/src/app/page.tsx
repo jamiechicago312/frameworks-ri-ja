@@ -1,15 +1,17 @@
 import { fetchMetadata } from "frames.js/next";
- 
-export async function generateMetadata() {
-  return {
-    title: "My Page",
-    // provide a full URL to your /frames endpoint
-    ...(await fetchMetadata(
-      new URL("/frames", process.env.VERCEL_URL || "http://localhost:3000")
-    )),
-  };
-}
- 
-export default function Home() {
-  return <p>Hello World</p>;
+import Head from "next/head";
+
+export default function Page() {
+  return (
+    <div>
+      <Head>
+        <title>Frameworks Page heh</title>
+        {/* FC Frames */}
+        <meta name="fc:frame" content="vNext" />
+        <meta name="fc:frame:image" content="https://cdn.shopify.com/s/files/1/1061/1924/files/Shyly_Smiling_Face_Emoji.png?width=150" />
+        <meta name="fc:frame:button:1" content="Click Me" />
+      </Head>
+      <p>Hello World</p>
+    </div>
+  );
 }
