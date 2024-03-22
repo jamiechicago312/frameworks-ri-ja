@@ -42,11 +42,13 @@ export const imgUrl = async (request) => {
       const rawCast = await fetchCast(hashShort, username) //use wield API
       const hashLong: string = resJson.result.cast.hash; //pulls out the full hash
       const saveImage = new URL(`https://client.warpcast.com/v2/cast-image?castHash=${hashLong}`); 
-      
+      const saveAuthor = username
+
       //Return response object
       return {
         status: 200,
-        body: saveImage.toString() // Convert URL to string before returning
+        body: saveImage.toString(), // Convert URL to string before returning
+        saveAuthor.toString(), //Save Authors Name
       };
     } catch (error) {
       console.error(error);
