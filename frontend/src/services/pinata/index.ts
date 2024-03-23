@@ -1,42 +1,18 @@
 //source of this API info https://docs.pinata.cloud/api-reference/endpoint/pin-json-to-ipfs
 //guide for IPFS https://docs.pinata.cloud/ipfs-101/how-does-ipfs-work-with-nfts
+//Installed Pinata SDK
 
-import { imgUrl } from "../farcaster";
+// Use the JWT key
+const pinataJWT = process.env.PINATA_API_JWT //assign JWT in vercel
+const pinataSDK = require('@pinata/sdk');
+const pinata = new pinataSDK({ pinataJWTKey: 'yourPinataJWTKey'});
 
-const axios = require('axios')
-const FormData = require('form-data')
-const fs = require('fs')
-const pinataJwt = process.env.PINATA_API_JWT // In Vercel
 
-const pinFileToIPFS = async () => {
-    const formData = new FormData();
-    const src = imgUrl.saveImage; //i'm trying to pull the saveImage that is returns from ../farcaster/index.ts
+//First we need to upload the image and get the CID
+export dafault async function pinImageToIpfs () {
+
     
-    const file = fs.createReadStream(src)
-    formData.append('file', file)
-    
-    const pinataMetadata = JSON.stringify({
-      name: 'File name',
-    });
-    formData.append('pinataMetadata', pinataMetadata);
-
-    try{
-      const res = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
-        maxBodyLength: "Infinity",
-        headers: {
-          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-          Authorization: pinataJwt
-        }
-      });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
 }
-
-pinFileToIPFS()
-
-
 
 
 /*
