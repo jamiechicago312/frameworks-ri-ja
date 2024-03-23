@@ -34,7 +34,7 @@ const nfts: {
 ]
 
 const frames = createFrames({
-  basePath: '/examples/new-api-mint-button/frames',
+  basePath: '/1/frames',
 })
 
 const handleRequest = frames(async (ctx) => {
