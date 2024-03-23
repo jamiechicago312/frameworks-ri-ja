@@ -3,8 +3,44 @@
 
 import { imgUrl } from "../farcaster";
 
+const axios = require('axios')
+const FormData = require('form-data')
+const fs = require('fs')
+const pinataJwt = process.env.PINATA_API_JWT // In Vercel
 
-const pinataKey = process.env.PINATA_API_KEY; //Add this Env Var to Vercel
+const pinFileToIPFS = async () => {
+    const formData = new FormData();
+    const src = imgUrl.saveImage; //i'm trying to pull the saveImage that is returns from ../farcaster/index.ts
+    
+    const file = fs.createReadStream(src)
+    formData.append('file', file)
+    
+    const pinataMetadata = JSON.stringify({
+      name: 'File name',
+    });
+    formData.append('pinataMetadata', pinataMetadata);
+
+    try{
+      const res = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
+        maxBodyLength: "Infinity",
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+          Authorization: pinataJwt
+        }
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+}
+
+pinFileToIPFS()
+
+
+
+
+/*
+const pinataKey = ; //Add this Env Var to Vercel
 
 const options = {
     method: 'POST',
@@ -18,3 +54,4 @@ const options = {
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
+*/
