@@ -1,6 +1,8 @@
+//source of this API info https://docs.pinata.cloud/api-reference/endpoint/pin-json-to-ipfs
+//guide for IPFS https://docs.pinata.cloud/ipfs-101/how-does-ipfs-work-with-nfts
+
 import { imgUrl } from "../farcaster";
 
-//source of this API info https://docs.pinata.cloud/api-reference/endpoint/pin-json-to-ipfs
 
 const pinataKey = process.env.PINATA_API_KEY; //Add this Env Var to Vercel
 
