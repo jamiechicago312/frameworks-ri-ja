@@ -9,7 +9,28 @@ const pinataJWT = process.env.PINATA_API_JWT //assign JWT in vercel
 const pinataSDK = require('@pinata/sdk');
 const pinata = new pinataSDK({ pinataJWTKey: 'yourPinataJWTKey'});
 
+//Second we need to take the CID from the previous function, add it to for our image, and pinJSONtoIPFS it to pinata
+//Used this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinjsontoipfs
+export default async function pinJSONtoPinata () {const body = {
+    name: `Cast by ${imgUrl.saveAuthor}`,
+    description: `${imgUrl.saveText}`,
+    image: `ipfs://${imgUrl.saveImage}`
+};
+const options = {
+    pinataMetadata: {
+        name: `${fetchCast.}`,
+    },
+    pinataOptions: {
+        cidVersion: 0
+    }
+};
+const res = await pinata.pinJSONToIPFS(body, options)
+//return
+console.log(res)
 
+}
+
+/* //this is to upload image to ipfs -- skip this
 //First we need to upload the image and get the CID
 // Use this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinfiletoipfs
 export dafault async function pinImageToPinata () {
@@ -27,27 +48,4 @@ const res = await pinata.pinFileToIPFS(readableStreamForFile, options)
 console.log(res.imageCID)
 return res.imageCID; // Return the imageCID
 }
-
-//Second we need to take the CID from the previous function, add it to for our image, and pinJSONtoIPFS it to pinata
-//Used this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinjsontoipfs
-export default async function pinJSONtoPinata () {const body = {
-    name: `Cast by ${imgUrl.saveAuthor}`,
-    description: `${imgUrl.saveText}`,
-    image: `ipfs://${res.imageCID}`
-};
-const options = {
-    pinataMetadata: {
-        name: `${fetchCast.}`,
-        keyvalues: {
-            customKey: 'customValue',
-            customKey2: 'customValue2'
-        }
-    },
-    pinataOptions: {
-        cidVersion: 0
-    }
-};
-const res = await pinata.pinJSONToIPFS(body, options)
-console.log(res)
-
-}
+*/

@@ -1,5 +1,6 @@
 const weildKey = process.env.WEILD_API_KEY; // Add this to Vercel
 
+//import component to bring in user's input URL
 
 //API code to look up cast
 export default async function fetchCast(shortHash: string, username: string) {
@@ -34,7 +35,7 @@ export const imgUrl = async (request: { url: string | URL; }) => {
           body: "Invalid cast URL. URL must start with 'https://warpcast.com'."
         };
       }
-      const address = searchParams.get("address") //Do we need it?
+      //const address = searchParams.get("address") // Do we need it?
       const parts = castUrl.split('/');
       const username = parts[3]; // takes username out
       const hashShort = parts[4]; //takes short hash out
@@ -44,7 +45,9 @@ export const imgUrl = async (request: { url: string | URL; }) => {
       const saveImage = new URL(`https://client.warpcast.com/v2/cast-image?castHash=${hashLong}`); 
       const saveAuthor = username
       const saveText = resJson.result.cast.text
-      const saveAuthorAddress = resJson.result.cast.connectedAddress //I am just pulling the custody address that is first and is an ETH address
+      const saveAuthorAddress = resJson.result.cast.connectedAddress //I am just pulling the custody address that is first and is an ETH address; not ENS
+      const saveFullCastHash = resJson.result.cast.hash
+      
       //Return response object
       return {
         status: 200,
@@ -53,6 +56,7 @@ export const imgUrl = async (request: { url: string | URL; }) => {
           saveAuthor, //Save Authors Name
           saveText, //Save Cast Text
           saveAuthorAddress // Save Author's custody address
+          saveFullCastHash //Save full cast hash
       };
     } catch (error) {
       console.error(error);

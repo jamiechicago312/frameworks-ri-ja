@@ -43,8 +43,8 @@ curl --request GET \
           "mentions": []
         },
         "external": false,
-        "custodyAddress": "0xa19097b0b81529cae9514f914ceb604683c7fa20",
-        "connectedAddress": "0x70d04384b5c3a466ec4d8cfb8213efc31c6a9d15",
+        "custodyAddress": "0xa19097b0b81529cae9514f914ceb604683c7fa20", //This is the Farcaster Address, i think
+        "connectedAddress": "0x70d04384b5c3a466ec4d8cfb8213efc31c6a9d15", // This is their wallet address
         "allConnectedAddresses": {
           "ethereum": [
             "0x70d04384b5c3a466ec4d8cfb8213efc31c6a9d15"
