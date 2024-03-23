@@ -24,7 +24,7 @@ export default async function fetchCast(shortHash: string, username: string) {
 }
 
 //Use API response to get author, cast text, & create image
-export const imgUrl = async (request) => {
+export const imgUrl = async (request: { url: string | URL; }) => {
     try {
       const searchParams = new URL(request.url).searchParams;
       const castUrl = searchParams.get("cast") //castUrl will be user input
