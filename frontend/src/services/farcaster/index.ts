@@ -49,10 +49,11 @@ export const imgUrl = async (request: { url: string | URL; }) => {
       //Return response object
       return {
         status: 200,
-        body: saveImage.toString(), // Convert URL to string before returning
-        saveAuthor.toString(), //Save Authors Name
-        saveText.toString(), //Save Cast Text
-        saveAuthorAddress.toString() // Save Author's custody address
+        body: 
+          saveImage.toString(), // Convert URL to string before returning
+          saveAuthor, //Save Authors Name
+          saveText, //Save Cast Text
+          saveAuthorAddress // Save Author's custody address
       };
     } catch (error) {
       console.error(error);
