@@ -27,7 +27,7 @@ export async function POST(
   const callData = encodeFunctionData({
     abi: FrameABI as Abi,
     functionName: 'mint',
-    args: [1, '0x'],
+    args: [tokenId, '0x'],
   })
 
   const publicClient = createPublicClient({

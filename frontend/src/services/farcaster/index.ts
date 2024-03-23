@@ -8,19 +8,19 @@ export default async function fetchCast(shortHash: string, username: string) {
     const res = await fetch(
       `https://protocol.wield.co/farcaster/v2/cast-short?shortHash=${shortHash}&username=${username}`, // Fixed URL syntax
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
-          "API-KEY": weildKey!,
+          'Content-Type': 'application/json',
+          'API-KEY': weildKey!,
         },
-      },
-    );
-    const resJson = await res.json();
-    console.log(resJson.result.cast);
-    return resJson.result.cast;
+      }
+    )
+    const resJson = await res.json()
+    console.log(resJson.result.cast)
+    return resJson.result.cast
   } catch (error) {
-    console.log(error);
-    throw error;
+    console.log(error)
+    throw error
   }
 }
 
@@ -62,7 +62,7 @@ export const imgUrl = async (request: { url: string | URL; }) => {
       console.error(error);
       return {
         status: 500,
-        body: "Internal Server Error"
-      };
+        body: 'Internal Server Error',
     }
-    }
+  }
+}
