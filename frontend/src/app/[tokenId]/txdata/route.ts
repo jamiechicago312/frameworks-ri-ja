@@ -11,13 +11,13 @@ import {
 } from 'viem'
 import { sepolia } from 'viem/chains'
 import { CONTRACT_ADDRESS, CHAIN_ID } from '@/utils/constants'
+import { getParams } from '@/utils/url'
 
 export async function POST(
   req: NextRequest
 ): Promise<NextResponse<TransactionTargetResponse>> {
-  //TODO: dynamic tokenId
-  const tokenId = 1
   const json = await req.json()
+  const { tokenId } = getParams(json.untrustedData.url)
 
   const frameMessage = await getFrameMessage(json)
 
@@ -40,7 +40,6 @@ export async function POST(
     abi: FrameABI as Abi,
     client: publicClient,
   })
-//   console.log('frameContract', frameContract)
 
   const tokenPrice: BigInt = (await frameContract.read.fees([
     tokenId,
