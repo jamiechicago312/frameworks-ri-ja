@@ -31,15 +31,3 @@ export default async function TokenIdPage({
 }: NextServerPageProps) {
   return <div>mint</div>
 }
-
-// export async function getServerSideProps(context: { req: any }) {
-//   const req = context.req
-//   const fullUrl = req.url
-
-//   // Return the full URL as a prop
-//   return {
-//     props: {
-//       fullUrl,
-//     },
-//   }
-// }
