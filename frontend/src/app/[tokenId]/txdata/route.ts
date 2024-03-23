@@ -40,6 +40,7 @@ export async function POST(
     abi: FrameABI as Abi,
     client: publicClient,
   })
+//   console.log('frameContract', frameContract)
 
   const tokenPrice: BigInt = (await frameContract.read.fees([
     tokenId,
