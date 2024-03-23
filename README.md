@@ -1,4 +1,4 @@
-# Mint-A-Cast Farcaster Frame
+# Mint-A-Cast: A Farcaster Frame
 An ETHGlobalFramework Hackathon Project by Ricy [@ricy](https://warpcast.com/ricy) and Jamie [@chicago](https://warpcast.com/chicago).
 
 ## Introduction
