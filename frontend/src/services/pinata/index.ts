@@ -18,15 +18,16 @@ export default async function pinJSONtoPinata () {const body = {
 };
 const options = {
     pinataMetadata: {
-        name: `${fetchCast.}`,
+        name: `${imgUrl.saveFullCastHash}`,
     },
     pinataOptions: {
         cidVersion: 0
     }
 };
 const res = await pinata.pinJSONToIPFS(body, options)
-//return
 console.log(res)
+//return response
+return res //so we need to define this further?
 
 }
 
