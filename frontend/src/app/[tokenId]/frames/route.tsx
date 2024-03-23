@@ -34,38 +34,69 @@ const nfts: {
 ]
 
 const frames = createFrames({
-  basePath: '/1/frames',
+  basePath: '/1',
 })
 
+// const handleRequest = frames(async (ctx) => {
+//   const page = Number(ctx.searchParams?.pageIndex ?? 0)
+//   return {
+//     image: nfts[page]!.src,
+//     imageOptions: {
+//       aspectRatio: '1:1',
+//     },
+//     buttons: [
+//       <Button
+//         action="post"
+//         target={{
+//           query: {
+//             pageIndex: String((page - 1) % nfts.length),
+//           },
+//         }}
+//       >
+//         ←
+//       </Button>,
+//       <Button
+//         action="post"
+//         target={{
+//           query: {
+//             pageIndex: String((page + 1) % nfts.length),
+//           },
+//         }}
+//       >
+//         →
+//       </Button>,
+//       <Button action="mint" target={nfts[page]!.tokenUrl}>
+//         Mint
+//       </Button>,
+//     ],
+//   }
+// })
+
 const handleRequest = frames(async (ctx) => {
-  const page = Number(ctx.searchParams?.pageIndex ?? 0)
+  if (ctx.message?.transactionId) {
+    return {
+      image: (
+        <div tw="bg-purple-800 text-white w-full h-full justify-center items-center flex">
+          Transaction submitted! {ctx.message.transactionId}
+        </div>
+      ),
+      imageOptions: {
+        aspectRatio: '1:1',
+      },
+    }
+  }
+
   return {
-    image: nfts[page]!.src,
+    image: (
+      <div tw="bg-purple-800 text-white w-full h-full justify-center items-center">
+        Mint the cast
+      </div>
+    ),
     imageOptions: {
       aspectRatio: '1:1',
     },
     buttons: [
-      <Button
-        action="post"
-        target={{
-          query: {
-            pageIndex: String((page - 1) % nfts.length),
-          },
-        }}
-      >
-        ←
-      </Button>,
-      <Button
-        action="post"
-        target={{
-          query: {
-            pageIndex: String((page + 1) % nfts.length),
-          },
-        }}
-      >
-        →
-      </Button>,
-      <Button action="mint" target={nfts[page]!.tokenUrl}>
+      <Button action="tx" target="/txdata" post_url="/frames">
         Mint
       </Button>,
     ],
