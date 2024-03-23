@@ -2,7 +2,7 @@
 //guide for IPFS https://docs.pinata.cloud/ipfs-101/how-does-ipfs-work-with-nfts
 //Installed Pinata SDK
 import { imgUrl } from ../farcaster/index.ts //check if I made this correctly please
-
+import { fetchCast } from ../farcaster.inex.ts 
 
 // Use the JWT key
 const pinataJWT = process.env.PINATA_API_JWT //assign JWT in vercel
@@ -31,11 +31,13 @@ return res.imageCID; // Return the imageCID
 //Second we need to take the CID from the previous function, add it to for our image, and pinJSONtoIPFS it to pinata
 //Used this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinjsontoipfs
 export default async function pinJSONtoPinata () {const body = {
-    message: 'Pinatas are awesome'
+    name: `Cast by ${imgUrl.saveAuthor}`,
+    description: `${imgUrl.saveText}`,
+    image: `ipfs://${res.imageCID}`
 };
 const options = {
     pinataMetadata: {
-        name: MyCustomName,
+        name: `${fetchCast.}`,
         keyvalues: {
             customKey: 'customValue',
             customKey2: 'customValue2'
