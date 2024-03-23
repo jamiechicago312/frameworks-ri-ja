@@ -7,7 +7,7 @@ const frames = createFrames({
 
 const handleRequest = frames(async (ctx) => {
   const imgUrl = ctx.searchParams?.imgUrl ?? ''
-  // console.log('imgUrl', imgUrl)
+
   if (ctx.message?.transactionId) {
     return {
       image: (
@@ -25,7 +25,6 @@ const handleRequest = frames(async (ctx) => {
     image: (
       <div tw="w-4/5 h-4/5 flex justify-center items-center">
         <img src={imgUrl} />
-        Here we go
       </div>
     ),
     version: 'vNext',
