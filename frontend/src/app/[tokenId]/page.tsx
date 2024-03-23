@@ -1,21 +1,7 @@
-import Link from 'next/link'
 import { Metadata, ResolvingMetadata } from 'next'
 import { fetchMetadata } from 'frames.js/next'
-import { getTokenUrl } from 'frames.js'
-import { sepolia } from 'viem/chains'
-import {
-  FrameButton,
-  FrameContainer,
-  FrameImage,
-  FrameInput,
-  FrameReducer,
-  PreviousFrame,
-  NextServerPageProps,
-  getFrameMessage,
-  getPreviousFrame,
-  useFramesReducer,
-} from 'frames.js/next/server'
-import { currentURL, vercelURL } from '@/utils/url'
+import { NextServerPageProps } from 'frames.js/next/server'
+import { vercelURL } from '@/utils/url'
 
 type Props = {
   params: { id: string }
