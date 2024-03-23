@@ -11,6 +11,7 @@ const pinata = new pinataSDK({ pinataJWTKey: 'yourPinataJWTKey'});
 
 
 //First we need to upload the image and get the CID
+// Use this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinfiletoipfs
 export dafault async function pinImageToPinata () {
     const fs = require('fs');
     const readableStreamForFile = fs.createReadStream(imgUrl.saveImage); //the file from from ../farcaster/index.js
@@ -24,29 +25,28 @@ export dafault async function pinImageToPinata () {
 };
 const res = await pinata.pinFileToIPFS(readableStreamForFile, options)
 console.log(res.imageCID)
-
-    
+return res.imageCID; // Return the imageCID
 }
 
 //Second we need to take the CID from the previous function, add it to for our image, and pinJSONtoIPFS it to pinata
-export default async function pinJSONtoPinata () { 
-    const body = {
-        message: 'Pinatas are awesome'
-    };
-    const options = {
-        pinataMetadata: {
-            name: MyCustomName,
-            keyvalues: {
-                customKey: 'customValue',
-                customKey2: 'customValue2'
-            }
-        },
-        pinataOptions: {
-            cidVersion: 0
+//Used this doc for reference https://docs.pinata.cloud/sdks/pinata-sdk#pinjsontoipfs
+export default async function pinJSONtoPinata () {const body = {
+    message: 'Pinatas are awesome'
+};
+const options = {
+    pinataMetadata: {
+        name: MyCustomName,
+        keyvalues: {
+            customKey: 'customValue',
+            customKey2: 'customValue2'
         }
-    };
-    const res = await pinata.pinJSONToIPFS(body, options)
-    console.log(res)    
+    },
+    pinataOptions: {
+        cidVersion: 0
+    }
+};
+const res = await pinata.pinJSONToIPFS(body, options)
+console.log(res)
 
 }
 
