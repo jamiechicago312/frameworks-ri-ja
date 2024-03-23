@@ -23,7 +23,7 @@ export default async function fetchCast(shortHash: string, username: string) {
   }
 }
 
-//code to look up cast in API
+//Use API response to get author, cast text, & create image
 export const imgUrl = async (request) => {
     try {
       const searchParams = new URL(request.url).searchParams;
@@ -34,15 +34,17 @@ export const imgUrl = async (request) => {
           body: "Invalid cast URL. URL must start with 'https://warpcast.com'."
         };
       }
-      const address = searchParams.get("address")
+      const address = searchParams.get("address") //Do we need it?
       const parts = castUrl.split('/');
       const username = parts[3]; // takes username out
       const hashShort = parts[4]; //takes short hash out
       const rawCast = await fetchCast(hashShort, username) //use wield API
+      const resJson = rawCast // taking the rawcast result and labeling as resJson
       const hashLong: string = resJson.result.cast.hash; //pulls out the full hash
       const saveImage = new URL(`https://client.warpcast.com/v2/cast-image?castHash=${hashLong}`); 
       const saveAuthor = username
       const saveText = resJson.result.cast.text
+      const saveAuthorAddress = resJson.result.cast.custodyAddress //I am just pulling the first address that is associated with the account
 
       //Return response object
       return {
@@ -50,6 +52,7 @@ export const imgUrl = async (request) => {
         body: saveImage.toString(), // Convert URL to string before returning
         saveAuthor.toString(), //Save Authors Name
         saveText.toString(), //Save Cast Text
+        saveAuthorAddress.toString() // Save Author's custody address
       };
     } catch (error) {
       console.error(error);
