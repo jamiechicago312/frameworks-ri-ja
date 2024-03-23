@@ -6,7 +6,7 @@ const pinataKey = process.env.PINATA_API_KEY; //Add this Env Var to Vercel
 
 const options = {
     method: 'POST',
-    headers: {Authorization: 'Bearer: pinataKey', // I'm not sure how to put the API key with bearer here
+    headers: {Authorization: `Bearer: ${pinataKey}`, // I think this need ` instead of '
         'Content-Type': 'application/json'},
     body: //I want to call the returned consts from the imgURL, I think this needs to be adjusted
         '{"pinataContent":{"name:":"Cast by ${imgUrl.saveAuthor}","description":"${saveText}","image":"${saveImage}"}}'
