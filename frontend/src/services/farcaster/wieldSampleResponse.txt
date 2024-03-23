@@ -1,0 +1,83 @@
+Sample API response from https://docs.far.quest/reference/get_farcaster-v2-cast-short
+-- Created this so I can use this as a reference
+
+curl --request GET \
+     --url 'https://build.far.quest/farcaster/v2/cast-short?shortHash=0x6bada01d&username=robin' \
+     --header 'API-KEY: 4M2R3-44M5R-AVX6X-U694L-9BJ1M' \
+     --header 'accept: application/json'
+
+{
+  "result": {
+    "cast": {
+      "hash": "0x6bada01d2c6f32ea99f286341fdc4bdf2119235e",
+      "parentUrl": "https://warpcast.com/~/channel/six",
+      "threadHash": "0x6bada01d2c6f32ea99f286341fdc4bdf2119235e",
+      "text": "TIL this is a thing?! lowkey wish i had this in college",
+      "embeds": {
+        "images": [
+          {
+            "type": "image",
+            "url": "https://i.imgur.com/AkPwvA2.jpg",
+            "sourceUrl": "https://i.imgur.com/AkPwvA2.jpg",
+            "alt": "Cast image embed",
+            "originalUrl": "https://i.imgur.com/AkPwvA2.jpg"
+          }
+        ],
+        "urls": [],
+        "frames": [],
+        "quoteCasts": []
+      },
+      "mentions": [],
+      "mentionsPositions": [],
+      "external": false,
+      "author": {
+        "fid": "369",
+        "followingCount": 1126,
+        "followerCount": 55201,
+        "pfp": {
+          "url": "https://i.imgur.com/NXChCsx.jpg",
+          "verified": false
+        },
+        "bio": {
+          "text": "co-conspirator @ gallery.so • ex-coinbase • /gallery /djs • my casts are endorsements, financial advice, and reflect my employer's opinions",
+          "mentions": []
+        },
+        "external": false,
+        "custodyAddress": "0xa19097b0b81529cae9514f914ceb604683c7fa20",
+        "connectedAddress": "0x70d04384b5c3a466ec4d8cfb8213efc31c6a9d15",
+        "allConnectedAddresses": {
+          "ethereum": [
+            "0x70d04384b5c3a466ec4d8cfb8213efc31c6a9d15"
+          ],
+          "solana": []
+        },
+        "displayName": "robin",
+        "username": "robin",
+        "registeredAt": 1693494142833
+      },
+      "parentAuthor": null,
+      "timestamp": 1711209358000,
+      "replies": {
+        "count": 5
+      },
+      "reactions": {
+        "count": 17
+      },
+      "recasts": {
+        "count": 2
+      },
+      "channel": {
+        "_id": "65f361b996ef0c904546979b",
+        "channelId": "six",
+        "__v": 0,
+        "createdAt": 1703095212,
+        "description": "this channel is for people to dump their thoughts. treat it as a notes app!",
+        "imageUrl": "https://i.imgur.com/eLsRTEP.jpg",
+        "leadFid": "7143",
+        "name": "six",
+        "url": "https://warpcast.com/~/channel/six"
+      }
+    }
+  },
+  "source": "v2"
+}
