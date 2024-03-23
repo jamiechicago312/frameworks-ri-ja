@@ -1,5 +1,4 @@
-const KEY = Deno.env.get("YOUR_WEILD_KEY_ENV"); 
-// ^ where can we keep this save in this repo
+const weildKey = process.env.WEILD_API_KEY; // Add this to Vercel
 
 
 //API code to look up cast
@@ -11,7 +10,7 @@ export default async function fetchCast(shortHash: string, username: string) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "API-KEY": KEY!,
+          "API-KEY": weildKey!,
         },
       },
     );
