@@ -1,6 +1,8 @@
 //source of this API info https://docs.pinata.cloud/api-reference/endpoint/pin-json-to-ipfs
 //guide for IPFS https://docs.pinata.cloud/ipfs-101/how-does-ipfs-work-with-nfts
 //Installed Pinata SDK
+import { imgUrl } from ../farcaster/index.ts //check if I made this correctly please
+
 
 // Use the JWT key
 const pinataJWT = process.env.PINATA_API_JWT //assign JWT in vercel
@@ -9,14 +11,48 @@ const pinata = new pinataSDK({ pinataJWTKey: 'yourPinataJWTKey'});
 
 
 //First we need to upload the image and get the CID
-export dafault async function pinImageToIpfs () {
+export dafault async function pinImageToPinata () {
+    const fs = require('fs');
+    const readableStreamForFile = fs.createReadStream(imgUrl.saveImage); //the file from from ../farcaster/index.js
+    const options = {
+        pinataMetadata: { //this is not the json but just for pinata directory
+            name: ${imgUrl.saveImage},
+    },
+    pinataOptions: {
+        cidVersion: 0
+    }
+};
+const res = await pinata.pinFileToIPFS(readableStreamForFile, options)
+console.log(res.imageCID)
 
     
 }
 
+//Second we need to take the CID from the previous function, add it to for our image, and pinJSONtoIPFS it to pinata
+export default async function pinJSONtoPinata () { 
+    const body = {
+        message: 'Pinatas are awesome'
+    };
+    const options = {
+        pinataMetadata: {
+            name: MyCustomName,
+            keyvalues: {
+                customKey: 'customValue',
+                customKey2: 'customValue2'
+            }
+        },
+        pinataOptions: {
+            cidVersion: 0
+        }
+    };
+    const res = await pinata.pinJSONToIPFS(body, options)
+    console.log(res)    
+
+}
+
+
 
 /*
-const pinataKey = ; //Add this Env Var to Vercel
 
 const options = {
     method: 'POST',
