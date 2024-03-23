@@ -1,0 +1,7 @@
+//format of our metadata
+{
+    "name": "Cast by ${imgUrl.saveAuthor}",
+    "description": "${imgUrl.saveText}",
+    "image": "${imgUrl.saveImage"
+  }
+  
