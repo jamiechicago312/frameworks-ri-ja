@@ -44,8 +44,7 @@ export const imgUrl = async (request: { url: string | URL; }) => {
       const saveImage = new URL(`https://client.warpcast.com/v2/cast-image?castHash=${hashLong}`); 
       const saveAuthor = username
       const saveText = resJson.result.cast.text
-      const saveAuthorAddress = resJson.result.cast.custodyAddress //I am just pulling the first address that is associated with the account
-
+      const saveAuthorAddress = resJson.result.cast.connectedAddress //I am just pulling the custody address that is first and is an ETH address
       //Return response object
       return {
         status: 200,
