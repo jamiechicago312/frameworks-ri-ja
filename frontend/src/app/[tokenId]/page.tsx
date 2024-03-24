@@ -54,6 +54,7 @@ export async function generateMetadata(
     description: 'Frame for minting NFT',
     other: {
       // ...metaData,
+      'fc:frame:': metaData['fc:frame:'],
       ...ofMetaData,
       'fc:frame': 'vNext',
     },
