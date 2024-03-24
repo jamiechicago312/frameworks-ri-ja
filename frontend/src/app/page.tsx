@@ -36,7 +36,7 @@ export default function Home() {
   const { loading, handleExecAction } = useInTransaction(onSubmit)
 
   return (
-    <WrapperCard className="flex flex-col justify-between items-center min-w-[350px] min-h-[300px]">
+    <WrapperCard className="flex flex-col justify-between items-center w-[550px] min-h-[300px]">
       <h1 className="text-4xl font-bold">Mint the Cast</h1>
       <form
         className="flex flex-col items-center gap-y-[24px]"
