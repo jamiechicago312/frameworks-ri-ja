@@ -12,7 +12,7 @@ Our Mint-A-Cast frame solves these two problems. First, the frame allows users t
 Through the use of this frame, user can input a cast link and complete a transaction to mint the cast as an NFT. This NFT get attributed to the cast creator. Currently, the cast creator can set a minting fee by interacting with the contract directly. 
 
 **User Flow**
-1. Find a cast they like; copy the cast link (format: https://warpcast.com/[castAuthorName]/[castShortHash])
+1. Find a cast they like; copy the cast link (format: `https://warpcast.com/[castAuthorName]/[castShortHash]`)
 2. Navigate to the Mint-A-Cast frame; we recommend pinning this frame to the top of channels for greatest visibility
 3. Past URL into input box, click button to next step
 4. Follow Transaction pop-up
