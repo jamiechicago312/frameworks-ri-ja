@@ -16,6 +16,7 @@ interface Ethereum extends ethers.BrowserProvider {
     method: string
     params?: unknown[] | object
   }) => Promise<string[]>
+  on: any
 }
 
 declare global {

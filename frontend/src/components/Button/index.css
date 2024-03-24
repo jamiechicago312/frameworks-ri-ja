@@ -1,10 +1,10 @@
 /* contained button */
 .fui-button--contained {
-  @apply bg-[rgba(255,255,255,0.12);] text-[#ffffff];
+  @apply bg-[rgba(255,255,255,0.12);] text-[#000000];
 }
 
 .fui-button--contained:hover {
-  @apply bg-[#ffffff] text-[#000000];
+  @apply bg-[#000000] text-[#ffffff];
 }
 
 /* outlined button */
