@@ -5,6 +5,8 @@ import {ERC1155} from "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import {ERC1155URIStorage} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol";
 
 contract Frame is ERC1155URIStorage {
+    uint256 public _tokenIds;
+
     uint256 public constant DEFAULT_FEES = 0.01 ether;
 
     mapping(uint256 => address) public authors;
@@ -14,21 +16,13 @@ contract Frame is ERC1155URIStorage {
 
     constructor() ERC1155("") {}
 
-    // function uri(
-    //     uint256 _tokenId
-    // ) public view override returns (string memory) {
-    //     return tokenURIs[_tokenId];
-    // }
-
-    function setToken(
-        uint256 _tokenId,
-        address _author,
-        string calldata _uri
-    ) external {
-        authors[_tokenId] = _author;
+    function setToken(address _author, string calldata _uri) external {
+        uint256 newTokenId = _tokenIds;
+        authors[newTokenId] = _author;
         // tokenURIs[_tokenId] = _uri;
-        _setURI(_tokenId, _uri);
-        fees[_tokenId] = DEFAULT_FEES;
+        _setURI(newTokenId, _uri);
+        fees[newTokenId] = DEFAULT_FEES;
+        _tokenIds++;
     }
 
     function setFees(
