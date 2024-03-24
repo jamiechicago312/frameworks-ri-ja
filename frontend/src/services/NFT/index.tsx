@@ -42,5 +42,5 @@ export const creatToken = async (castUrl: string) => {
   if (!newTokenId) throw new Error('Failed to fetch last token id')
   const { CID, castInfo } = await castToCID(castUrl)
   await setToken(castInfo.authorAdd, CID)
-  return newTokenId
+  return { newTokenId, imgUrl: castInfo.imgUrl }
 }

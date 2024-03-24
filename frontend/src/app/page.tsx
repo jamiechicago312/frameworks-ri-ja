@@ -22,9 +22,11 @@ export default function Home() {
 
   const onSubmit = useCallback(async (data: CastForm) => {
     try {
-      const newTokenId = await creatToken(data.castUrl)
+      const res = await creatToken(data.castUrl)
+      if (!res) return
+      const { newTokenId, imgUrl } = res
       //TODO:  url depends on the environment
-      const url = 'https://' + VERCEL_URL + `/${newTokenId}`
+      const url = 'https://' + VERCEL_URL + `/${newTokenId}?img=${imgUrl}`
       setTokenUrl(url.toString())
     } catch (err) {
       console.error(err)
