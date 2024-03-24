@@ -47,11 +47,8 @@ export async function generateMetadata(
     if (key.startsWith('fc:frame')) {
       let newKey = key.replace('fc:frame', 'of')
       ofMetaData[newKey] = metaData[key] as string
-      // ofMetaData[key] = metaData[key]
     }
   }
-  // console.log('metaData', metaData)
-  console.log('ofMetaData', ofMetaData)
   return {
     title: 'Minting Frameworks',
     description: 'Frame for minting NFT',
