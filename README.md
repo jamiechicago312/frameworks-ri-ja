@@ -21,7 +21,7 @@ Through the use of this frame, the user can mint a cast as an NFT. Currently, th
 7. Click mint & sign the wallet pop up
 8. Wait for the transaction to complete
 
-Currently, the Mint-A-Cast website and frame is usable to mint any cast; so no customization is required beyond providing the cast link.
+Currently, the Mint-A-Cast website and frame is usable to mint any cast; so no customization is required beyond providing the cast link. You can use the link to the blockchain explorer to see recent mints: https://sepolia.etherscan.io/address/0x4dd9ed609abbb6ae489045a678ff3080d3f4106c
 
 ## Technical Summary
 The [contract](https://sepolia.etherscan.io/tx/0x4b50fa82925f3417af973bddf057a074345efe818a6491e898f057f898141f23) is a erc1155 smart contract. The contract is deployed on Sepolia and developed with Hardhat. It also provides interface for authors to adjust price and withdraw profits.
