@@ -17,10 +17,6 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-type State = {
-  transactionId?: string
-}
-
 const acceptedProtocols: ClientProtocolId[] = [
   {
     id: 'xmtp',
@@ -54,27 +50,17 @@ export async function generateMetadata(
     description: 'Frame for minting NFT',
     other: {
       // ...metaData,
-      'fc:frame:': metaData['fc:frame:'],
+      'fc:frame:image': metaData['fc:frame:image'],
       ...ofMetaData,
       'fc:frame': 'vNext',
     },
   }
 }
 
-// const reducer = (state: State, message: any) => {
-//   if (isXmtpFrameActionPayload(message)) {
-//     return {
-//       ...state,
-//       transactionId: message.transactionId,
-//     }
-//   }
-//   return state
-// }
-
 export default async function TokenIdPage({
   searchParams,
 }: NextServerPageProps) {
-  const previousFrame = getPreviousFrame(searchParams)
+  // const previousFrame = getPreviousFrame(searchParams)
   return (
     <div>
       mint
