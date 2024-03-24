@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { Button, createFrames } from 'frames.js/next'
+import { shortenAddress } from '@/utils/address'
 
 const frames = createFrames({
   basePath: '/:tokenId',
@@ -13,7 +14,7 @@ const handleRequest = frames(async (ctx) => {
       image: (
         <div tw="w-4/5 h-full flex justify-center items-center">
           tx hash:
-          <p tw="w-[100px]"> {ctx.message.transactionId}</p>
+          <p tw="w-[100px]"> {shortenAddress(ctx.message.transactionId)}</p>
         </div>
       ),
       imageOptions: {
