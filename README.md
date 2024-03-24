@@ -26,6 +26,9 @@ Through the use of this frame, user can input a cast link and complete a transac
 Currently, the Mint-A-Cast Frame is not individialized per cast author, so there is no need to add a customized frame per channel. This single frame can work for any cast across the Farcaster platform.
 
 ## Technical Summary
+The [contract](https://sepolia.etherscan.io/tx/0x4b50fa82925f3417af973bddf057a074345efe818a6491e898f057f898141f23) is a erc1155 smart contract, deployed on sepolia currently, developed with hardhat. It also provides interface for authors to adjust price and withdraw profits.
+
+The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicago312/frameworks-ri-ja/blob/main/frontend/src/app/%5BtokenId%5D/frames/route.tsx) to achieve frame effect for minting, which would display the related image for the NFT, send transactions to blockchain, as well as send an amount of ethers after hitting the mint button and response after user has submited the transaction successfully. And for the part to convert a cast into NFT, the project is using apis by wield to retrieve related data and using Pinata to upload metadata to IPFS.
 
 ## Future Roadmap
 
