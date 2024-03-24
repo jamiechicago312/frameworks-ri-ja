@@ -15,6 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="of:version" content="vNext" />
       <meta name="of:accepts:xmtp" content="vNext" />
       <meta name="of:accepts:farcaster" content="vNext" />
       <meta property="of:accepts:lens" content="1.1" />

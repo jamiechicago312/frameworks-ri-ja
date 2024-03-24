@@ -54,7 +54,6 @@ export async function generateMetadata(
       'og:image': metaData['fc:frame:image'],
       ...ofMetaData,
       'fc:frame': 'vNext',
-      'of:version': 'vNext',
     },
   }
 }
