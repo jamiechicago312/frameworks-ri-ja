@@ -1,17 +1,19 @@
 'use client'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
 import { WrapperCard } from '@/components/Card'
 import AuthConnect from '@/modules/AuthConnect'
 import useInTransaction from '@/hooks/useIntransaction'
-import { castToCID } from '@/services/NFT'
+import { creatToken } from '@/services/NFT'
+import { VERCEL_URL } from '@/utils/constants'
 
 interface CastForm {
   castUrl: string
 }
 export default function Home() {
+  const [tokenUrl, setTokenUrl] = useState<string>('')
   const {
     register,
     handleSubmit,
@@ -20,9 +22,13 @@ export default function Home() {
 
   const onSubmit = useCallback(async (data: CastForm) => {
     try {
-      const { CID, castInfo } = await castToCID(data.castUrl)
-      console.log(CID)
-    } catch (err) {}
+      const newTokenId = await creatToken(data.castUrl)
+      //TODO:  url depends on the environment
+      const url = 'https://' + VERCEL_URL + `/${newTokenId}`
+      setTokenUrl(url.toString())
+    } catch (err) {
+      console.error(err)
+    }
   }, [])
 
   const { loading, handleExecAction } = useInTransaction(onSubmit)
@@ -45,6 +51,11 @@ export default function Home() {
           </Button>
         </AuthConnect>
       </form>
+      {tokenUrl && (
+        <div>
+          cast the minting url: <p>{tokenUrl}</p>
+        </div>
+      )}
     </WrapperCard>
   )
 }
