@@ -72,3 +72,4 @@ The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicag
       - The currency will be instant bridged under the hood
   - Specify Chain for Depolyed Contract
      - Default to a chain if none selected
+  - Allocate profits directly to an address withouth needing to withdraw
