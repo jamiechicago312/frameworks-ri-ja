@@ -26,7 +26,8 @@ export default function Home() {
       if (!res) return
       const { newTokenId, imgUrl } = res
       //TODO:  url depends on the environment
-      const url = 'https://' + VERCEL_URL + `/${newTokenId}?img=${imgUrl}`
+      
+      const url = 'https://' + VERCEL_URL + `${newTokenId}?img=${imgUrl}`
       setTokenUrl(url.toString())
     } catch (err) {
       console.error(err)
