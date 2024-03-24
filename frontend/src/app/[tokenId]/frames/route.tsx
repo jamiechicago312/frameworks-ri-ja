@@ -13,8 +13,7 @@ const handleRequest = frames(async (ctx) => {
     return {
       image: (
         <div tw="w-4/5 h-full flex justify-center items-center">
-          tx hash:
-          <p tw="w-[100px]"> {shortenAddress(ctx.message.transactionId)}</p>
+          tx submitted
         </div>
       ),
       imageOptions: {
