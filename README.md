@@ -31,6 +31,8 @@ The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicag
 ## Future Roadmap
 
 **General Improvements**
+- Move production to Base Mainnet; currently dev is on Sepolia
+- Switch from Wield API to Pinata Farcaster API when they accept the short hash and username for cast look up.
 - Create multipage frame
    - First Page
       - Allow users to input cast link into first frame
