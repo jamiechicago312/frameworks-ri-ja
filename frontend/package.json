@@ -12,6 +12,7 @@
     "@floating-ui/react": "^0.26.9",
     "@pinata/sdk": "^2.1.0",
     "clsx": "^2.1.0",
+    "ethers": "^6.11.1",
     "frames.js": "^0.9.1",
     "jotai": "^2.7.1",
     "lodash-es": "^4.17.21",
