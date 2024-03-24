@@ -51,7 +51,7 @@ The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicag
 - Small ~$0.10 fee for each mint to go to us (Ricy & Jamie) to help cover cost to maintain the Frame
 
 **User Improvements**
-- The frame's input with be able to accept the cast URL or a full cast hash inputed
+- The frame's input with be able to accept the cast URL or a full cast hash input
 - After the first mint, when the user shares their minted cast other users can mint the same cast with Warps through Warpcast.
 - User will have a Mint-A-Cast web client to browse Farcaster
    - Minting cast is an embedded function
