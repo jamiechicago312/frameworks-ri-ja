@@ -28,7 +28,7 @@ Currently, the Mint-A-Cast Frame is not individialized per cast author, so there
 ## Technical Summary
 The [contract](https://sepolia.etherscan.io/tx/0x4b50fa82925f3417af973bddf057a074345efe818a6491e898f057f898141f23) is a erc1155 smart contract, deployed on sepolia currently, developed with hardhat. It also provides interface for authors to adjust price and withdraw profits.
 
-The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicago312/frameworks-ri-ja/blob/main/frontend/src/app/%5BtokenId%5D/frames/route.tsx) to achieve frame effect for minting, which would display the related image for the NFT, send transactions to blockchain, as well as send an amount of ethers after hitting the mint button and response after user has submited the transaction successfully. And for the part to convert a cast into NFT, the project is using apis by wield to retrieve related data and using Pinata to upload metadata to IPFS.
+The frontend is a NextJS project. Using [Framejs](https://github.com/jamiechicago312/frameworks-ri-ja/blob/main/frontend/src/app/%5BtokenId%5D/frames/route.tsx) to achieve frame effect for minting, which is to present users a frame with image related to the nft they’re gonna mint and the mint button. The mint button would allow users to send transactions to sepolia blockchain and the transaction would also send some ethers as the fees to buy/mint the nft. After users have submitted the transaction, the frame would reponse a transaction submitted frame with transaction hash. And for the part to convert a cast into NFT, the project is using apis by wield to retrieve related data and using Pinata to upload metadata to IPFS.
 
 ## Future Roadmap
 
