@@ -22,7 +22,7 @@ export const fetchLastTokenId = async () => {
     provider
   )
   const tokenId = await frameContract._tokenIds()
-  return Number(tokenId) + 1
+  return Number(tokenId) 
 }
 
 export const setToken = async (author: string, metaCID: string) => {
