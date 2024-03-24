@@ -51,7 +51,7 @@ export async function generateMetadata(
     other: {
       // ...metaData,
       'fc:frame:image': metaData['fc:frame:image'],
-      'og:image': metaData['fc:frame:image'],
+      // 'og:image': metaData['fc:frame:image'],
       ...ofMetaData,
       'fc:frame': 'vNext',
     },

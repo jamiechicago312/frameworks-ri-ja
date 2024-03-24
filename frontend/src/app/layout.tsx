@@ -19,6 +19,10 @@ export default function RootLayout({
       <meta name="of:accepts:xmtp" content="vNext" />
       <meta name="of:accepts:farcaster" content="vNext" />
       <meta property="of:accepts:lens" content="1.1" />
+      <meta
+        name="og:image"
+        content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAI0lEQVR42mM8B8AAg8ClV1ZPAAAAABJRU5ErkJggg=="
+      />
       <body className="flex justify-center items-center">
         <Providers>
           <>
